@@ -8,8 +8,8 @@
 %global pkg_name microversion-parse
 
 Name:           python-%{pkg_name}
-Version:        0.1.3
-Release:        1%{?dist}
+Version:        XXX
+Release:        XXX
 Summary:        OpenStack microversion header parser
 
 License:        ASL 2.0
@@ -98,14 +98,14 @@ rm -rf .testrepository
 %doc README.rst
 %license LICENSE
 %{python2_sitelib}/%{pypi_name}
-%{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+%{python2_sitelib}/%{pypi_name}-*.egg-info
 
 %if 0%{?with_python3}
 %files -n python3-%{pkg_name}
 %doc README.rst
 %license LICENSE
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
+%{python3_sitelib}/%{pypi_name}-*.egg-info
 %endif
 
 %files -n python-%{pkg_name}-doc
