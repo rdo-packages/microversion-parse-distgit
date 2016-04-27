@@ -67,7 +67,7 @@ Summary:        microversion_parse documentation
 Documentation for microversion_parse
 
 %prep
-%autosetup -n %{pypi_name}-%{version}
+%autosetup -n %{pypi_name}-%{upstream_version}
 
 %build
 %py2_build
@@ -113,5 +113,3 @@ rm -rf .testrepository
 %license LICENSE
 
 %changelog
-* Fri Apr 22 2016 jpena <jpena@redhat.com> - 0.1.3-1
-- Initial package.
