@@ -1,3 +1,5 @@
-# UUID                                  	Group Name
-#
-171ca809c8a22b86484620f5383945a3e43f926f	openstack/microversion-parse-distgit-ptl
+# UUID          Group Name
+False 	Non-Interactive Users
+e908be8d6804cb6d2e1c309c8d9a0bc164489ffb       	openstack/microversion-parse-distgit-core
+171ca809c8a22b86484620f5383945a3e43f926f        	openstack/microversion-parse-distgit-ptl
+global:Registered-Users		Registered Users
