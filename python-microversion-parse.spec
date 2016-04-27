@@ -16,7 +16,7 @@ License:        ASL 2.0
 URL:            http://www.openstack.org/
 Source0:        https://pypi.python.org/packages/source/m/%{pypi_name}/%{pypi_name}-%{version}.tar.gz
 BuildArch:      noarch
- 
+
 
 %description
 A simple parser for OpenStack microversion headers
@@ -75,7 +75,7 @@ Documentation for microversion_parse
 %py3_build
 %endif
 
-# generate html docs 
+# generate html docs
 sphinx-build doc/source html
 # remove the sphinx-build leftovers
 rm -rf html/.{doctrees,buildinfo}
@@ -94,14 +94,14 @@ rm -rf .testrepository
 %{__python2} setup.py test
 
 
-%files -n python2-%{pkg_name} 
+%files -n python2-%{pkg_name}
 %doc README.rst
 %license LICENSE
 %{python2_sitelib}/%{pypi_name}
 %{python2_sitelib}/%{pypi_name}-%{version}-py?.?.egg-info
 
 %if 0%{?with_python3}
-%files -n python3-%{pkg_name} 
+%files -n python3-%{pkg_name}
 %doc README.rst
 %license LICENSE
 %{python3_sitelib}/%{pypi_name}
