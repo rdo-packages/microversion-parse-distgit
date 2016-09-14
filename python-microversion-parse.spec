@@ -8,8 +8,8 @@
 %global pkg_name microversion-parse
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        0.1.4
+Release:        1%{?dist}
 Summary:        OpenStack microversion header parser
 
 License:        ASL 2.0
@@ -113,3 +113,6 @@ rm -rf .testrepository
 %license LICENSE
 
 %changelog
+* Wed Sep 14 2016 Haikel Guemar <hguemar@fedoraproject.org> 0.1.4-1
+- Update to 0.1.4
+
