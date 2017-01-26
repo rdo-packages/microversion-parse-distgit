@@ -1,6 +1,6 @@
-# UUID          Group Name
-False 	Non-Interactive Users
-e908be8d6804cb6d2e1c309c8d9a0bc164489ffb       	openstack/microversion-parse-distgit-core
-171ca809c8a22b86484620f5383945a3e43f926f        	openstack/microversion-parse-distgit-ptl
+# UUID                                  	Group Name
+#
+171ca809c8a22b86484620f5383945a3e43f926f	openstack/microversion-parse-distgit-ptl
 63673ea7f2ae6a5666566b1ea9f14e473d00f5a9	rdo-core
-global:Registered-Users		Registered Users
+e908be8d6804cb6d2e1c309c8d9a0bc164489ffb	openstack/microversion-parse-distgit-core
+global:Registered-Users                 	Registered Users
