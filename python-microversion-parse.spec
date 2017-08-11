@@ -31,7 +31,6 @@ BuildRequires:  python-pbr
 BuildRequires:  python-sphinx
 # Required for testing and documentation generation
 BuildRequires:  python-hacking
-BuildRequires:  python-coverage
 BuildRequires:  python-oslo-sphinx
 BuildRequires:  python-testrepository
 BuildRequires:  python-testtools
@@ -51,7 +50,6 @@ BuildRequires:  python3-pbr
 BuildRequires:  python3-sphinx
 # Required for testing and documentation generation
 BuildRequires:  python3-hacking
-BuildRequires:  python3-coverage
 BuildRequires:  python3-oslo-sphinx
 BuildRequires:  python3-testrepository
 BuildRequires:  python3-testtools
