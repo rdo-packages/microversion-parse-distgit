@@ -7,6 +7,9 @@
 %global pypi_name microversion_parse
 %global pkg_name microversion-parse
 
+%global common_desc \
+A simple parser for OpenStack microversion headers
+
 Name:           python-%{pkg_name}
 Version:        XXX
 Release:        XXX
@@ -19,7 +22,7 @@ BuildArch:      noarch
 
 
 %description
-A simple parser for OpenStack microversion headers
+%{common_desc}
 
 %package -n     python2-%{pkg_name}
 Summary:        OpenStack microversion header parser
@@ -37,7 +40,7 @@ BuildRequires:  python-testtools
 BuildRequires:  python-webob
 
 %description -n python2-%{pkg_name}
-A simple parser for OpenStack microversion headers
+%{common_desc}
 
 %if 0%{?with_python3}
 %package -n     python3-%{pkg_name}
@@ -56,7 +59,7 @@ BuildRequires:  python3-testtools
 BuildRequires:  python3-webob
 
 %description -n python3-%{pkg_name}
-A simple parser for OpenStack microversion headers
+%{common_desc}
 %endif
 
 %package -n python-%{pkg_name}-doc
