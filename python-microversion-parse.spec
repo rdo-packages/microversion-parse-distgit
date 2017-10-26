@@ -11,8 +11,8 @@
 A simple parser for OpenStack microversion headers
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        0.1.4
+Release:        2%{?dist}
 Summary:        OpenStack microversion header parser
 
 License:        ASL 2.0
@@ -114,3 +114,8 @@ rm -rf .testrepository
 %license LICENSE
 
 %changelog
+* Thu Oct 26 2017 Alfredo Moralejo <amoralej@redhat.com> 0.1.4-2
+- Removed python-coverage as Build requirement
+
+* Wed Sep 14 2016 Haikel Guemar <hguemar@fedoraproject.org> 0.1.4-1
+- Update to 0.1.4
