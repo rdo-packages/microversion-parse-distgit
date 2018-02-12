@@ -29,15 +29,19 @@ Summary:        OpenStack microversion header parser
 %{?python_provide:%python_provide python2-%{pkg_name}}
 
 BuildRequires:  python2-devel
-BuildRequires:  python-setuptools
-BuildRequires:  python-pbr
-BuildRequires:  python-sphinx
+BuildRequires:  python2-setuptools
+BuildRequires:  python2-pbr
+BuildRequires:  python2-sphinx
 # Required for testing and documentation generation
-BuildRequires:  python-hacking
-BuildRequires:  python-oslo-sphinx
-BuildRequires:  python-testrepository
-BuildRequires:  python-testtools
+BuildRequires:  python2-hacking
+BuildRequires:  python2-oslo-sphinx
+BuildRequires:  python2-testrepository
+BuildRequires:  python2-testtools
+%if 0%{?fedora} || 0%{?rhel} > 7
+BuildRequires:  python2-webob
+%else
 BuildRequires:  python-webob
+%endif
 
 %description -n python2-%{pkg_name}
 %{common_desc}
