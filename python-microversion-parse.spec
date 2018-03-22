@@ -118,3 +118,4 @@ rm -rf .testrepository
 %license LICENSE
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/microversion-parse/commit/?id=ae5e3ce521556aaec85661e4b76ac997037d4f75
