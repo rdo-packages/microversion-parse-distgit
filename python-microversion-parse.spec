@@ -33,14 +33,17 @@ BuildRequires:  python2-setuptools
 BuildRequires:  python2-pbr
 BuildRequires:  python2-sphinx
 # Required for testing and documentation generation
+BuildRequires:  python2-gabbi
 BuildRequires:  python2-hacking
 BuildRequires:  python2-oslo-sphinx
 BuildRequires:  python2-testrepository
 BuildRequires:  python2-testtools
 %if 0%{?fedora} || 0%{?rhel} > 7
 BuildRequires:  python2-webob
+Requires:       python2-webob
 %else
 BuildRequires:  python-webob
+Requires:       python-webob
 %endif
 
 %description -n python2-%{pkg_name}
@@ -56,12 +59,13 @@ BuildRequires:  python3-setuptools
 BuildRequires:  python3-pbr
 BuildRequires:  python3-sphinx
 # Required for testing and documentation generation
+BuildRequires:  python3-gabbi
 BuildRequires:  python3-hacking
 BuildRequires:  python3-oslo-sphinx
 BuildRequires:  python3-testrepository
 BuildRequires:  python3-testtools
 BuildRequires:  python3-webob
-
+Requires:       python3-webob
 %description -n python3-%{pkg_name}
 %{common_desc}
 %endif
@@ -73,6 +77,8 @@ Documentation for microversion_parse
 
 %prep
 %autosetup -n %{pypi_name}-%{upstream_version}
+# Let RPM handle the requirements
+rm -f {test-,}requirements.txt
 
 %build
 %py2_build
