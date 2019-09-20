@@ -18,8 +18,8 @@
 A simple parser for OpenStack microversion headers
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        0.2.1
+Release:        1%{?dist}
 Summary:        OpenStack microversion header parser
 
 License:        ASL 2.0
@@ -88,3 +88,6 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Fri Sep 20 2019 RDO <dev@lists.rdoproject.org> 0.2.1-1
+- Update to 0.2.1
+
