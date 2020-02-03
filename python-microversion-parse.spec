@@ -88,3 +88,4 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/microversion-parse/commit/?id=dbf8dd6bcf583f1f217fa74031af20f62f366f13
