@@ -38,11 +38,9 @@ Summary:        OpenStack microversion header parser
 BuildRequires:  python%{pyver}-devel
 BuildRequires:  python%{pyver}-setuptools
 BuildRequires:  python%{pyver}-pbr
-BuildRequires:  python%{pyver}-sphinx
 # Required for testing and documentation generation
 BuildRequires:  python%{pyver}-gabbi
 BuildRequires:  python%{pyver}-hacking
-BuildRequires:  python%{pyver}-oslo-sphinx
 BuildRequires:  python%{pyver}-testrepository
 BuildRequires:  python%{pyver}-testtools
 BuildRequires:  python%{pyver}-webob
@@ -54,6 +52,10 @@ Requires:       python%{pyver}-webob
 
 %package -n python-%{pkg_name}-doc
 Summary:        microversion_parse documentation
+BuildRequires:  python%{pyver}-sphinx
+BuildRequires:  python%{pyver}-openstackdocstheme
+#NOTE(jpena): remove oslo-sphinx as a dependency once 1.0.0 is pinned in rdoinfo
+BuildRequires:  python%{pyver}-oslo-sphinx
 %description -n python-%{pkg_name}-doc
 Documentation for microversion_parse
 
