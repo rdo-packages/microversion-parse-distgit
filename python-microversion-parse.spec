@@ -54,8 +54,6 @@ Requires:       python%{pyver}-webob
 Summary:        microversion_parse documentation
 BuildRequires:  python%{pyver}-sphinx
 BuildRequires:  python%{pyver}-openstackdocstheme
-#NOTE(jpena): remove oslo-sphinx as a dependency once 1.0.0 is pinned in rdoinfo
-BuildRequires:  python%{pyver}-oslo-sphinx
 %description -n python-%{pkg_name}-doc
 Documentation for microversion_parse
 
