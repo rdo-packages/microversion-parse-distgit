@@ -1,14 +1,3 @@
-# Macros for py2/py3 compatibility
-%if 0%{?fedora} || 0%{?rhel} > 7
-%global pyver %{python3_pkgversion}
-%else
-%global pyver 2
-%endif
-%global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
-# End of macros for py2/py3 compatibility
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global pypi_name microversion_parse
@@ -31,29 +20,29 @@ BuildArch:      noarch
 %description
 %{common_desc}
 
-%package -n     python%{pyver}-%{pkg_name}
+%package -n     python3-%{pkg_name}
 Summary:        OpenStack microversion header parser
-%{?python_provide:%python_provide python%{pyver}-%{pkg_name}}
+%{?python_provide:%python_provide python3-%{pkg_name}}
 
-BuildRequires:  python%{pyver}-devel
-BuildRequires:  python%{pyver}-setuptools
-BuildRequires:  python%{pyver}-pbr
+BuildRequires:  python3-devel
+BuildRequires:  python3-setuptools
+BuildRequires:  python3-pbr
 # Required for testing and documentation generation
-BuildRequires:  python%{pyver}-gabbi
-BuildRequires:  python%{pyver}-hacking
-BuildRequires:  python%{pyver}-testrepository
-BuildRequires:  python%{pyver}-testtools
-BuildRequires:  python%{pyver}-webob
+BuildRequires:  python3-gabbi
+BuildRequires:  python3-hacking
+BuildRequires:  python3-testrepository
+BuildRequires:  python3-testtools
+BuildRequires:  python3-webob
 
-Requires:       python%{pyver}-webob
+Requires:       python3-webob
 
-%description -n python%{pyver}-%{pkg_name}
+%description -n python3-%{pkg_name}
 %{common_desc}
 
 %package -n python-%{pkg_name}-doc
 Summary:        microversion_parse documentation
-BuildRequires:  python%{pyver}-sphinx
-BuildRequires:  python%{pyver}-openstackdocstheme
+BuildRequires:  python3-sphinx
+BuildRequires:  python3-openstackdocstheme
 %description -n python-%{pkg_name}-doc
 Documentation for microversion_parse
 
@@ -63,25 +52,25 @@ Documentation for microversion_parse
 rm -f {test-,}requirements.txt
 
 %build
-%{pyver_build}
+%{py3_build}
 
 # generate html docs
-sphinx-build-%{pyver} doc/source html
-# remove the sphinx-build-%{pyver} leftovers
+sphinx-build-3 doc/source html
+# remove the sphinx-build-3 leftovers
 rm -rf html/.{doctrees,buildinfo}
 
 %install
-%{pyver_install}
+%{py3_install}
 
 %check
-%{pyver_bin} setup.py test
+%{__python3} setup.py test
 
 
-%files -n python%{pyver}-%{pkg_name}
+%files -n python3-%{pkg_name}
 %doc README.rst
 %license LICENSE
-%{pyver_sitelib}/%{pypi_name}
-%{pyver_sitelib}/%{pypi_name}-*.egg-info
+%{python3_sitelib}/%{pypi_name}
+%{python3_sitelib}/%{pypi_name}-*.egg-info
 
 %files -n python-%{pkg_name}-doc
 %doc html
