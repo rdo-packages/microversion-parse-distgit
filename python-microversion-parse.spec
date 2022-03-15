@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x01527a34f0d0080f8a5db8d6eb6c5df21b4b6363
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
 %global pypi_name microversion_parse
@@ -9,8 +9,8 @@
 A simple parser for OpenStack microversion headers
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        1.0.1
+Release:        1%{?dist}
 Summary:        OpenStack microversion header parser
 
 License:        ASL 2.0
@@ -94,3 +94,6 @@ rm -rf html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Tue Mar 15 2022 RDO <dev@lists.rdoproject.org> 1.0.1-1
+- Update to 1.0.1
+
