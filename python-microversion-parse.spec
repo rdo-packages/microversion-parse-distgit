@@ -1,6 +1,8 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
+# we are excluding some BRs from automatic generator
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
 
 %global pypi_name microversion_parse
 %global pkg_name microversion-parse
@@ -13,7 +15,7 @@ Version:        XXX
 Release:        XXX
 Summary:        OpenStack microversion header parser
 
-License:        ASL 2.0
+License:        Apache-2.0
 URL:            http://www.openstack.org/
 Source0:        https://tarballs.openstack.org/%{pkg_name}/%{pypi_name}-%{version}.tar.gz
 # Required for tarball sources verification
@@ -35,27 +37,15 @@ BuildRequires:  openstack-macros
 
 %package -n     python3-%{pkg_name}
 Summary:        OpenStack microversion header parser
-%{?python_provide:%python_provide python3-%{pkg_name}}
 
 BuildRequires:  python3-devel
-BuildRequires:  python3-setuptools
-BuildRequires:  python3-pbr
-# Required for testing and documentation generation
-BuildRequires:  python3-gabbi
-BuildRequires:  python3-hacking
-BuildRequires:  python3-testrepository
-BuildRequires:  python3-testtools
-BuildRequires:  python3-webob
-
-Requires:       python3-webob
+BuildRequires:  pyproject-rpm-macros
 
 %description -n python3-%{pkg_name}
 %{common_desc}
 
 %package -n python-%{pkg_name}-doc
 Summary:        microversion_parse documentation
-BuildRequires:  python3-sphinx
-BuildRequires:  python3-openstackdocstheme
 %description -n python-%{pkg_name}-doc
 Documentation for microversion_parse
 
@@ -65,32 +55,49 @@ Documentation for microversion_parse
 %{gpgverify}  --keyring=%{SOURCE102} --signature=%{SOURCE101} --data=%{SOURCE0}
 %endif
 %autosetup -n %{pypi_name}-%{upstream_version}
-# Let RPM handle the requirements
-rm -f {test-,}requirements.txt
+
+sed -i /^[[:space:]]*-c{env:.*_CONSTRAINTS_FILE.*/d tox.ini
+sed -i "s/^deps = -c{env:.*_CONSTRAINTS_FILE.*/deps =/" tox.ini
+sed -i /^minversion.*/d tox.ini
+sed -i /^requires.*virtualenv.*/d tox.ini
+
+# Exclude some bad-known BRs
+for pkg in %{excluded_brs};do
+  for reqfile in doc/requirements.txt test-requirements.txt; do
+    if [ -f $reqfile ]; then
+      sed -i /^${pkg}.*/d $reqfile
+    fi
+  done
+done
+
+%generate_buildrequires
+%pyproject_buildrequires -t -e %{default_toxenv},docs
+
+sed -i '/sphinx-build/ s/-W//' tox.ini
 
 %build
-%{py3_build}
+%pyproject_wheel
 
 # generate html docs
-sphinx-build-3 doc/source html
+%tox -e docs
 # remove the sphinx-build-3 leftovers
 rm -rf html/.{doctrees,buildinfo}
 
 %install
-%{py3_install}
+%pyproject_install
 
 %check
-%{__python3} setup.py test
+%tox -e %{default_toxenv}
 
 
 %files -n python3-%{pkg_name}
 %doc README.rst
 %license LICENSE
 %{python3_sitelib}/%{pypi_name}
-%{python3_sitelib}/%{pypi_name}-*.egg-info
+%{python3_sitelib}/%{pypi_name}-*.dist-info
 
 %files -n python-%{pkg_name}-doc
-%doc html
+%doc doc/build/html
 %license LICENSE
 
 %changelog
