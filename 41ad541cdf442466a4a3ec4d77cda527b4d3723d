@@ -58,6 +58,30 @@
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     },
     {
+      "unresolved": false,
+      "key": {
+        "uuid": "60017abb_0229c90d",
+        "filename": "python-microversion-parse.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 76,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2023-06-30T13:41:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "666dd8b8_31f7eb78",
+      "range": {
+        "startLine": 76,
+        "startChar": 0,
+        "endLine": 76,
+        "endChar": 38
+      },
+      "revId": "41ad541cdf442466a4a3ec4d77cda527b4d3723d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
       "unresolved": true,
       "key": {
         "uuid": "1534f0fb_3a336592",
@@ -71,6 +95,30 @@
       "writtenOn": "2023-06-29T13:03:42Z",
       "side": 1,
       "message": "it should be doc/build/html \n\nfrom the compare-files job\n2023-06-28 07:01:09.652899 | rdo-centos-8-stream | INFO: differences for python-microversion-parse-doc\n2023-06-28 07:01:09.665333 | rdo-centos-8-stream | /usr/share/doc/python-microversion-parse-doc/html/.buildinfo  \u003c",
+      "range": {
+        "startLine": 84,
+        "startChar": 7,
+        "endLine": 84,
+        "endChar": 11
+      },
+      "revId": "41ad541cdf442466a4a3ec4d77cda527b4d3723d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "a494ae7c_9ad991b5",
+        "filename": "python-microversion-parse.spec",
+        "patchSetId": 2
+      },
+      "lineNbr": 84,
+      "author": {
+        "id": 757
+      },
+      "writtenOn": "2023-06-30T13:41:43Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1534f0fb_3a336592",
       "range": {
         "startLine": 84,
         "startChar": 7,
