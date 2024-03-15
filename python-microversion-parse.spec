@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0xbba3b1e67a7303dd1769d34595bf2e4d09004514
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
 %global excluded_brs doc8 bandit pre-commit hacking flake8-import-order
@@ -11,8 +11,8 @@
 A simple parser for OpenStack microversion headers
 
 Name:           python-%{pkg_name}
-Version:        XXX
-Release:        XXX
+Version:        1.0.1
+Release:        2%{?dist}
 Summary:        OpenStack microversion header parser
 
 License:        Apache-2.0
@@ -101,3 +101,6 @@ rm -rf doc/build/html/.{doctrees,buildinfo}
 %license LICENSE
 
 %changelog
+* Fri Mar 15 2024 RDO <dev@lists.rdoproject.org> 1.0.1-2
+- Rebuild 1.0.1 in Caracal
+
